@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Shop Admin | FLARENO WRITE</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="site admin-page">
+    <div class="site-energy site-orange" aria-hidden="true"></div>
+    <div class="site-energy site-blue" aria-hidden="true"></div>
+
+    <section class="admin-shell">
+      <header class="admin-header">
+        <a class="mini-brand" href="index.html">
+          <img src="images/flareno-logo.jpg" alt="FLARENO WRITE" />
+          <span>FLARENO <b>WRITE</b></span>
+        </a>
+
+        <a class="admin-back-link" href="shop.html">Open public shop ↗</a>
+      </header>
+
+      <!-- LOGIN SCREEN -->
+      <section class="admin-card" id="loginPanel">
+        <p class="eyebrow">PRIVATE OWNER ACCESS</p>
+        <h1>SHOP<br /><span>ADMIN.</span></h1>
+
+        <p class="admin-description">
+          Sign in to add new articles, PDF files, prices, and descriptions.
+        </p>
+
+        <form class="admin-form" id="loginForm">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="Your Supabase admin email"
+            required
+          />
+
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Your admin password"
+            required
+          />
+
+          <button class="button button-primary" type="submit">
+            Unlock Admin
+          </button>
+
+          <p class="admin-message" id="loginMessage" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <!-- OWNER DASHBOARD -->
+      <section class="admin-dashboard" id="adminDashboard" hidden>
+        <div class="admin-dashboard-heading">
+          <div>
+            <p class="eyebrow">PRIVATE PRODUCT MANAGER</p>
+            <h1>Add a new <span>article.</span></h1>
+          </div>
+
+          <button class="button button-outline" id="logoutButton" type="button">
+            Log out
+          </button>
+        </div>
+
+        <div class="admin-layout">
+          <section class="admin-card admin-add-card">
+            <h2>New shop article</h2>
+            <p>Add the title, description, price, and full PDF. The public Shop page updates automatically.</p>
+
+            <form class="admin-form" id="productForm">
+              <label for="title">Article title</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                maxlength="160"
+                placeholder="Example: 5 Simple Study Habits"
+                required
+              />
+
+              <label for="description">Short description</label>
+              <textarea
+                id="description"
+                name="description"
+                rows="5"
+                maxlength="500"
+                placeholder="What will the buyer learn from this article?"
+                required
+              ></textarea>
+
+              <label for="price">Price in INR</label>
+              <input
+                id="price"
+                name="price"
+                type="number"
+                min="1"
+                step="1"
+                placeholder="49"
+                required
+              />
+
+              <label for="pdf">Full PDF file</label>
+              <input
+                id="pdf"
+                name="pdf"
+                type="file"
+                accept="application/pdf"
+                required
+              />
+
+              <button class="button button-primary" id="publishButton" type="submit">
+                Upload & Publish
+              </button>
+
+              <p class="admin-message" id="productMessage" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="admin-card admin-products-card">
+            <h2>Your published articles</h2>
+            <p>Delete an item here if you no longer want it listed publicly.</p>
+
+            <div class="admin-product-list" id="adminProductList"></div>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
