@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Buy ready-made research-based articles from FLARENO WRITE."
+  />
+
+  <title>Article Shop | FLARENO WRITE</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="site shop-page">
+    <div class="site-energy site-orange" aria-hidden="true"></div>
+    <div class="site-energy site-blue" aria-hidden="true"></div>
+
+    <header class="navbar">
+      <a class="mini-brand" href="index.html">
+        <img src="images/flareno-logo.jpg" alt="FLARENO WRITE" />
+        <span>FLARENO <b>WRITE</b></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#samples">Samples</a>
+        <a class="active" href="shop.html">Shop</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a
+        class="nav-contact"
+        href="https://wa.me/918838969397?text=Hi%20FLARENO%20WRITE%2C%20I%20want%20a%20custom%20article."
+        target="_blank"
+        rel="noopener"
+      >
+        Custom Article
+      </a>
+    </header>
+
+    <section class="section shop-section">
+      <div class="section-heading">
+        <p class="eyebrow">READY-MADE ARTICLES</p>
+        <h1 class="shop-title">FLARENO <span>SHOP.</span></h1>
+        <p class="shop-intro">
+          Browse original, research-based articles. Choose an article, message
+          us to buy it, and receive the full PDF after payment.
+        </p>
+      </div>
+
+      <p class="shop-loading" id="shopLoading">Loading articles...</p>
+      <p class="shop-empty" id="shopEmpty" hidden>
+        New articles are being prepared. Please check back soon.
+      </p>
+
+      <div class="shop-grid" id="shopGrid"></div>
+    </section>
+
+    <footer>
+      <p>FLARENO WRITE</p>
+      <span>Research. Write. Engage.</span>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="shop.js"></script>
+</body>
+</html>
