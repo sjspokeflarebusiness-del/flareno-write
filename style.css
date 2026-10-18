@@ -1400,3 +1400,52 @@ footer p {
     padding: 27px 22px;
   }
 }
+/* HAMBURGER MENU STYLES */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+/* Mobile Menu Overrides */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex; /* Shows the hamburger on mobile */
+  }
+
+  .nav-links {
+    display: none; /* Keeps it hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(3, 7, 17, 0.98);
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+
+  /* This class is added by JavaScript to open the menu */
+  .nav-links.active {
+    display: flex; 
+  }
+  
+  .nav-links a {
+    font-size: 18px;
+    padding: 15px 0;
+  }
+}
