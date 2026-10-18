@@ -211,6 +211,28 @@
         </p>
       </div>
 
+      <!-- SECRET ADMIN FORM (HIDDEN BY DEFAULT) -->
+      <div id="adminPanel" style="display: none; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; margin-bottom: 40px; border: 1px solid var(--line);">
+        <h3 style="margin-top: 0; color: var(--orange);">Add New Article</h3>
+        <form id="addArticleForm" style="display: grid; gap: 15px;">
+          <input type="password" id="adminPass" placeholder="Enter Secret Password" style="padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: #000; color: white;" required />
+          
+          <div id="articleFields" style="display: none; gap: 15px; grid-template-columns: 1fr;">
+            <input type="text" id="newCategory" placeholder="Category (e.g., 07 · SCIENCE)" style="padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: #000; color: white;" required />
+            <input type="text" id="newTitle" placeholder="Article Title" style="padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: #000; color: white;" required />
+            <input type="text" id="newDesc" placeholder="Short Description" style="padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: #000; color: white;" required />
+            <input type="url" id="newLink" placeholder="Google Doc Link (https://...)" style="padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: #000; color: white;" required />
+            <button type="submit" class="button button-primary">Add Article to Website</button>
+          </div>
+        </form>
+        <p id="adminMessage" style="color: #8ee9ba; margin-top: 10px;"></p>
+      </div>
+      
+      <!-- Add a secret button to open the admin panel -->
+      <button id="openAdmin" style="background: none; border: none; color: #555; font-size: 10px; cursor: pointer; margin-bottom: 20px;">•</button>
+
+      <div class="sample-grid" id="worksGrid">
+      
       <div class="sample-grid">
         <!-- ARTICLE 1 -->
         <a class="sample-card" href="PASTE_YOUR_GOOGLE_DOC_LINK_HERE" target="_blank">
