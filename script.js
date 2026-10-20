@@ -1,5 +1,5 @@
 // ==========================================
-// 1. SAFE ELEMENT SELECTORS
+// 1. ELEMENT SELECTORS
 // ==========================================
 const preloader = document.getElementById("preloader");
 const loader = document.getElementById("loader");
@@ -28,8 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 3. PRELOADER ANIMATION (Only runs on index.html)
+// 3. PRELOADER ANIMATION (Safe Check)
 // ==========================================
+// This IF statement checks if the preloader exists. 
+// If you are on works.html (no preloader), it skips this and prevents the crash!
 if (preloader && loader && loaderValue) {
   document.body.classList.add("is-loading");
   let progress = 0;
@@ -56,14 +58,14 @@ if (preloader && loader && loaderValue) {
     loaderValue.textContent = progress;
   }, 110);
 } else {
-  // If no preloader (like on works.html), just start animations immediately
+  // If no preloader (like on works.html), just show the website immediately
   document.body.classList.remove("is-loading");
   document.body.classList.add("site-ready");
   startScrollAnimations();
 }
 
 // ==========================================
-// 4. 3D MOUSE TILT EFFECT (Desktop Only)
+// 4. 3D MOUSE TILT EFFECT
 // ==========================================
 if (storyPortal && window.matchMedia("(pointer: fine)").matches) {
   storyPortal.addEventListener("mousemove", (event) => {
@@ -127,18 +129,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const worksGrid = document.getElementById("worksGrid");
   const adminMessage = document.getElementById("adminMessage");
 
-  // 1. Open the panel when the tiny dot is clicked
   if (openAdminBtn && adminPanel) {
     openAdminBtn.addEventListener("click", () => {
       adminPanel.style.display = adminPanel.style.display === "none" ? "block" : "none";
     });
   }
 
-  // 2. Load saved articles from LocalStorage when the page loads
   const savedArticles = JSON.parse(localStorage.getItem("flareno_articles")) || [];
   savedArticles.forEach(article => renderArticle(article));
 
-  // 3. Add new article
   if (addArticleForm) {
     addArticleForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -150,20 +149,16 @@ document.addEventListener("DOMContentLoaded", () => {
         link: document.getElementById("newLink").value
       };
 
-      // Save to LocalStorage
       savedArticles.push(newArticle);
       localStorage.setItem("flareno_articles", JSON.stringify(savedArticles));
 
-      // Render it instantly on the page
       renderArticle(newArticle);
 
-      // Reset form
       addArticleForm.reset();
       adminMessage.textContent = "Article added to this browser!";
     });
   }
 
-  // 4. Function to create the HTML for the article
   function renderArticle(article) {
     const a = document.createElement("a");
     a.className = "sample-card scroll-reveal is-visible";
